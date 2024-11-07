@@ -4,8 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
 
   reactStrictMode: true,
-  swcMinify: true,
-  optimizeFonts: true,
   images: {
     remotePatterns: [
       {

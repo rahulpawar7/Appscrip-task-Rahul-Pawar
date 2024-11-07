@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://appscrip-task-rahul-pawar.vercel.app/sitemap.xml
