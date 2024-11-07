@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { default as styles } from "../../styles/Home.module.css";
 
+interface ProductData {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  isNew: string;
+  isOutOfStock: string;
+  description: string;
+}
 interface ProductCardProps {
-  product: {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-    isNew: string;
-    isOutOfStock: string;
-    description: string;
-  };
+  product: ProductData;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {

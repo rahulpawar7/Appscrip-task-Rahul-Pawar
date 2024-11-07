@@ -7,6 +7,9 @@ interface Product {
   title: string;
   image: string;
   price: number;
+  isNew: string;
+  isOutOfStock: string;
+  description: string;
 }
 
 interface ProductListProps {
@@ -35,7 +38,7 @@ const ProductList = ({ initialProducts, initialLimit }: ProductListProps) => {
   return (
     <>
       <div className={styles.gridContainer}>
-        {products.map((product: any, index: any) => (
+        {products.map((product: Product, index: number) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>

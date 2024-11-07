@@ -12,6 +12,9 @@ interface Product {
   title: string;
   image: string;
   price: number;
+  isNew: string;
+  isOutOfStock: string;
+  description: string;
 }
 
 interface HomePageProps {
@@ -19,7 +22,7 @@ interface HomePageProps {
 }
 
 const Home = ({ initialProducts }: HomePageProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
   const toggleSidebar = () => setIsOpen(!isOpen);
   return (
     <div className={styles.homeMain}>

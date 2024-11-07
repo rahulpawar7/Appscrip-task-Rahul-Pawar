@@ -1,8 +1,23 @@
 import { useState } from "react";
 import styles from "../../styles/Home.module.css";
+interface SidebarFiltertProps {
+  isOpen: boolean;
+}
 
-const SidebarFilter = ({ isOpen }: any) => {
-  const [filters, setFilters] = useState<any>({
+// Define a type for the filters object
+interface Filters {
+  idealFor: boolean;
+  occasion: boolean;
+  work: boolean;
+  fabric: boolean;
+  segment: boolean;
+  suitableFor: boolean;
+  rawMaterials: boolean;
+  pattern: boolean;
+}
+
+const SidebarFilter = ({ isOpen }: SidebarFiltertProps) => {
+  const [filters, setFilters] = useState<Filters>({
     idealFor: false,
     occasion: false,
     work: false,
@@ -14,8 +29,11 @@ const SidebarFilter = ({ isOpen }: any) => {
   });
 
   // Toggle filter section visibility
-  const toggleFilter = (filter: string) => {
-    setFilters((prev: any) => ({ ...prev, [filter]: !prev[filter] }));
+  const toggleFilter = (filter: keyof Filters) => {
+    setFilters((prev) => ({
+      ...prev,
+      [filter]: !prev[filter],
+    }));
   };
 
   return (
@@ -29,7 +47,7 @@ const SidebarFilter = ({ isOpen }: any) => {
       </div>
 
       {/* Filter Sections */}
-      {Object.keys(filters).map((filterKey, index) => (
+      {(Object.keys(filters) as (keyof Filters)[]).map((filterKey, index) => (
         <div key={index} className={styles.filterSection}>
           <div
             className={styles.filterHeader}
